@@ -1,9 +1,11 @@
 <?php require_once 'inc/header.php';
 require_once 'inc/connect.php';
 
+
 ?>
 <!-- Page Content -->
 <!-- Banner Starts Here -->
+
 <div class="banner header-text">
   <div class="owl-banner owl-carousel">
     <div class="banner-item-01">
@@ -23,17 +25,30 @@ require_once 'inc/connect.php';
         <!-- <h4>Last Minute</h4> -->
         <!-- <h2>Grab last minute deals</h2> -->
       </div>
+
     </div>
   </div>
+  <?php
+  if (!empty($_SESSION['success']['edit_post'])) { ?>
+
+  <div class="alert alert-success" style="height:50px; position: relative; top:20px; width:30% ;left:530px "
+    role="alert">
+    <p>
+      <?php
+        echo $_SESSION['success']['edit_post'];
+        unset($_SESSION['success']['edit_post']);
+          ?>
+  </div><?php } ?>
 </div>
 <!-- Banner Ends Here -->
 
 <div class="latest-products">
   <div class="container">
     <div class="row">
+
       <div class="col-md-12">
         <div class="section-heading">
-          <h2>Latest Posts</h2>
+          <h2>ALl Posts</h2>
         </div>
       </div>
       <?php
@@ -130,7 +145,7 @@ require_once 'inc/connect.php';
                                                                           $pages = $pages + 1;
                                                                         }
                                                                       } else {
-                                                                        $pages =2;
+                                                                        $pages = 2;
                                                                       }
 
                                                                       echo $pages

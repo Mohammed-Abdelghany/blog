@@ -24,15 +24,13 @@ if (isset($_SESSION['login']['id'])) {
         if (in_array($file_ext, $allowed_extensions)) {
           // إنشاء اسم فريد للصورة
           $new_file_name = uniqid() . '.' . $file_ext;
-          $target_dir = 'uploads/'; // مسار المجلد المخصص لحفظ الصور
-          $target_file = $target_dir . $new_file_name;
 
-          if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
+          if (move_uploaded_file($_FILES['image']['tmp_name'], 'uploads/' . $new_file_name)) {
             // تعيين المتغيرات المطلوبة من النموذج
 
             $sql = "INSERT INTO posts ( title, body,`image`,users_id) VALUES ('$title', '$body', '$new_file_name', '$id')";
             if (mysqli_query($conn, $sql)) {
-              // إعادة التوجيه بعد النجاح
+              $_SESSION['succsses']="succsses";
               header('Location: index.php');
               exit();
             } else {
