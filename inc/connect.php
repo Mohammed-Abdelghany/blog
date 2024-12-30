@@ -30,6 +30,6 @@ if (
   basename($_SERVER['PHP_SELF']) != 'Login.php' &&
   basename($_SERVER['PHP_SELF']) != 'register.php'
 ) {
-  header("Location: ../index.php");
+  header("Location: ../Login.php");
   exit();
 }
