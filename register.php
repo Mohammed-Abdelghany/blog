@@ -16,106 +16,106 @@ require_once('inc/connect.php');
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
+  * {
+    box-sizing: border-box;
+  }
 
-    .nav .links a:hover,
-    button:hover {
-      background-color: #8000ff;
-    }
+  .nav .links a:hover,
+  button:hover {
+    background-color: #8000ff;
+  }
 
-    body {
-      display: flex;
-      flex-direction: column;
-      align-content: center;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      height: 100px;
-      padding: 20px;
-      background-color: #607d8b4a;
-    }
+  body {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    padding: 20px;
+    background-color: #607d8b4a;
+  }
 
-    .nav {
-      display: flex;
-      flex-direction: row;
-      align-content: center;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      height: 100px;
-      padding: 10px;
-      margin: 0;
-    }
+  .nav {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    margin: 0;
+  }
 
-    .nav .links {
-      width: 15%;
-      display: flex;
-      justify-content: space-around;
-    }
+  .nav .links {
+    width: 15%;
+    display: flex;
+    justify-content: space-around;
+  }
 
-    .nav .links a {
-      color: white;
-      padding: 4px 10px;
-      background-color: #03a9f47a;
-      text-decoration: none;
-      border-radius: 4px;
-      transition: all 1s;
-    }
+  .nav .links a {
+    color: white;
+    padding: 4px 10px;
+    background-color: #03a9f47a;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 1s;
+  }
 
-    .input {
-      outline: none;
-      border: none;
-      width: 300px;
-      height: 45px;
-      border-radius: 10px;
-      padding: 10px;
-    }
+  .input {
+    outline: none;
+    border: none;
+    width: 300px;
+    height: 45px;
+    border-radius: 10px;
+    padding: 10px;
+  }
 
-    .form {
-      width: 430px;
-      height: 425px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      align-content: center;
-      justify-content: space-between;
-      background-color: rgba(255, 255, 255, 0.423);
-      backdrop-filter: blur(30px);
-      padding: 30px;
-      -webkit-filter-blur: 10%;
-      border-radius: 30px;
-    }
+  .form {
+    width: 430px;
+    height: 425px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.423);
+    backdrop-filter: blur(30px);
+    padding: 30px;
+    -webkit-filter-blur: 10%;
+    border-radius: 30px;
+  }
 
-    form button {
-      border: none;
-      padding: 10px 20px;
-      border-radius: 10px;
-      color: white;
-      background-color: #03a9f47a;
-      transition: all 1s;
-    }
+  form button {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: white;
+    background-color: #03a9f47a;
+    transition: all 1s;
+  }
 
-    form span a {
-      text-decoration: none;
-      color: black;
-      font-weight: bold;
-    }
+  form span a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+  }
 
-    .remember {
-      width: 135px;
-      height: 32px;
-      display: flex;
-      flex-direction: row;
-      align-content: center;
-      justify-content: space-around;
-      align-items: center;
-    }
+  .remember {
+    width: 135px;
+    height: 32px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+  }
 
-    .wrong {
-      color: red;
-    }
+  .wrong {
+    color: red;
+  }
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -174,42 +174,35 @@ require_once('inc/connect.php');
 
     ?>
 
-              <div class="alert alert-success" style="border-radius: 10px; width:300px" role="alert">
-                This is a success alert—check it out!
-              </div>
-            <?php
-            } else { ?>
-              <div class="alert alert-danger" style="border-radius: 10px; width:300px" role="alert">
-                This is a danger alert—check it out!
-              </div>
-
-          <?php
-
+    <?php
+              $_SESSION['newaccount'] = 'congrats now U have account plese login in ';
+              header('Location: Login.php');
             }
           }
-        } else { ?>
-          <div class="alert alert-danger" style="border-radius: 10px; width:300px" role="alert">
-            This is email is already exists!
-          </div>
-        <?php
-
-
+        } else {
+          $_SESSION['errors']['email'] = "Email already exists";
         }
       }
-      if (!empty($_SESSION['errors'])) { ?>
-        <div class="alert alert-danger" style="border-radius: 10px; width:300px" role="alert">
-          This is a danger alert—check it out!
-        </div>
-    <?php
-        unset($_SESSION['errors']);
-      }
     }
-
     ?>
 
   </div>
   <a href="Login.php">Login</a>
+  <?php
+  if (!empty($_SESSION['errors'])) { ?>
+  <?php foreach ($_SESSION['errors'] as $error) {
+    ?>
 
+  <div class="alert alert-danger" style="border-radius: 10px; width:300px" role="alert">
+    <?php echo $error; ?>
+
+  </div>
+  <?php
+    }
+    unset($_SESSION['errors']);
+  }
+
+  ?>
 </body>
 
 </html>

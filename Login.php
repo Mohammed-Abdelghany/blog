@@ -188,6 +188,17 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     </head>
+    <?php
+    if (isset($_SESSION['newaccount'])) { ?>
+    <div class="alert alert-success" style="border-radius: 10px; width:300px" role="alert">
+      <?php echo $_SESSION['newaccount'];
+        unset($_SESSION['newaccount']); ?>
+    </div>
+    <?php
+    }
+
+
+    ?>
 
     <body>
 

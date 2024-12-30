@@ -440,7 +440,8 @@ header .navbar {
 
 .product-item .down-content h6 {
   position: absolute;
-  top: 30px;
+  margin-bottom: 10px;
+  top: 5px;
   right: 30px;
   font-size: 14px;
   color: #121212;

@@ -47,15 +47,16 @@ if (isset($_GET['id'])) {
 
       } //in array
 
-    } 
+    }
     //if (isset($file)_)
 
 
-  } //request
+  }
 } else {
-  header('location:index.php');
-  exit();
+
+  header("Location:errors.php"); //request
 }
+
 //get 
 
 ?>
